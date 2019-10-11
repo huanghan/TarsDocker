@@ -24,17 +24,17 @@ RUN  apt-get install -y mysql-client-5.7
 #RUN  npm install -g pm2 --registry=https://registry.npm.taobao.org 
 
 
-#copy tars组件 tarsweb管理台
-COPY build/framework.tgz /usr/local/app/tars/ 
-COPY build/tars*.tgz     /root/ 
+
+#安装解压framework.tgz
+ADD tars/build/framework.tgz /usr/local/app/tars/
+
+#copy tars组件 
+COPY tars/build/tars*.tgz   /root/ 
 #COPY TarsWeb /usr/local/tarsweb
 
-ADD confs /root/confs
-ADD sql   /root/sql
- 
-RUN cd /usr/local/app/tars  && mkdir app_log && mkdir remote_app_log \
-	&& tar -xzvf framework.tgz  \
-	&& rm -rf *.tgz
+ADD tars/confs /root/confs
+ADD tars/sql   /root/sql
+
 
 #RUN  cd /usr/local/tarsweb/ && npm install -g pm2 @tars/deploy --registry=https://registry.npm.taobao.org \
 

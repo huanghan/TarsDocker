@@ -9,7 +9,7 @@
     sh prepare.sh
 
 ## build
-    docker build -f Dockerfile -t tars ./tars/
+    docker build -f Dockerfile -t tarsmaster .
 
 ## run
 #### mysql
