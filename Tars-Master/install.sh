@@ -163,6 +163,25 @@ install_base_services(){
 	./tarspatch/util/init.sh
 
 	chmod u+x tars_install.sh
+
+	if [ ! -d /usr/local/app/tars/app_log ]; then
+		mkdir -p /data/log/tars
+		mkdir -p /usr/local/app/tars
+		mkdir -p /data/logs/tars/app_log
+		ln -s /data/logs/tars/app_log /usr/local/app/tars/app_log
+	fi
+
+	if [ ! -d /usr/local/app/tars/remote_app_log ]; then
+		mkdir -p /data/logs/tars/remote_app_log
+		ln -s /data/logs/tars/remote_app_log /usr/local/app/tars/remote_app_log
+	fi
+	
+	mkdir -p /data/tars/tarsnode/data
+	if [ -d /usr/local/app/tars/tarsnode/data ] ;then 
+			mv /usr/local/app/tars/tarsnode/data/* /data/tars/tarsnode/data/
+			rm -rf /usr/local/app/tars/tarsnode/data
+	fi
+	ln -s /data/tars/tarsnode/data /usr/local/app/tars/tarsnode/data
 }
 
 build_web_mgr(){
