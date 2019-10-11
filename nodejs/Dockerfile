@@ -20,6 +20,3 @@ RUN apt-get install -y python2.7 && ln -sf  /usr/bin/python2.7  /usr/bin/python
 RUN apt-get clean 
  
 VOLUME ["/data"]
- 
-
-#     docker build -t nodejs:v8.15.1 .
