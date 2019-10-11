@@ -172,8 +172,14 @@ build_web_mgr(){
 	rm -rf /root/.pm2
 	mkdir -p /root/.pm2
 	ln -s /data/logs /root/.pm2/logs
+
+	mkdir -p /usr/local/app
+	mkdir -p /data/tars/patchs
+	rm -rf /usr/local/app/patchs && ln -sf /data/tars/patchs /usr/local/app/patchs
 	
 	cd /usr/local/tarsweb/
+	rm -rf log && ln -s /data/logs /usr/local/tarsweb/log
+	
 	sed -i "s/registry.tars.com/${TARSMASTER}/g" `grep registry.tars.com -rl ./config/*`
 	sed -i "s/db.tars.com/${DBIP}/g" `grep db.tars.com -rl ./config/*`
 	sed -i "s/3306/${DBPort}/g" `grep 3306 -rl ./config/*`
