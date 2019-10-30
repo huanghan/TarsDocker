@@ -1,6 +1,6 @@
 # Tars-Dev-Ubuntu16.04
 
-基于官方ubuntu-16.04的tars 框架编译，开发环境，安装有gcc g++ mysqlclient cmake 等不要开发编译工具
+基于官方ubuntu-16.04的tars 框架编译，开发环境，安装有gcc g++ mysqlclient cmake 等必要开发编译工具
 
 代码挂载目录 /home/tars
 
