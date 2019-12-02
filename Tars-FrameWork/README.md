@@ -26,7 +26,9 @@
     ./build.sh install
 
 ## 打包组件
-    make framework-tar
+    cd servers
+    tar -czvf framework-tar.tgz tarsAdminRegistry tarsconfig tarsnode  tarsnotify  tarspatch  tarsproperty  tarsqueryproperty  tarsquerystat  tarsregistry  tarsstat
+    //make framework-tar
     make tarslog-tar
     make tarsnotify-tar
     make tarsproperty-tar
