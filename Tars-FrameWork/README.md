@@ -7,8 +7,12 @@
     cd ${source_folder}
     git clone https://github.com/TarsCloud/TarsFramework.git --recursive
     
+    git checkout 887533fbcce4e99a2faff3e340fc83a347f24798
+    
     cd ${source_folder}/TarsFramework
     git submodule update --init --recursive
+    
+    
 
 ## 下载Docker编译环境
     docker pull tars-dev
@@ -25,10 +29,8 @@
 ## 安装头文件和lib
     ./build.sh install
 
-## 打包组件
-    cd servers
-    tar -czvf framework-tar.tgz tarsAdminRegistry tarsconfig tarsnode  tarsnotify  tarspatch  tarsproperty  tarsqueryproperty  tarsquerystat  tarsregistry  tarsstat
-    //make framework-tar
+## 打包组件 
+    make framework-tar
     make tarslog-tar
     make tarsnotify-tar
     make tarsproperty-tar
