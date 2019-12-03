@@ -185,6 +185,10 @@ build_web_mgr(){
 	sed -i "s/3306/${DBPort}/g" `grep 3306 -rl ./config/*`
 	sed -i "s/tars2015/${DBTarsPass}/g" `grep tars2015 -rl ./config/*`
 	sed -i "s/DEBUG/INFO/g" `grep DEBUG -rl ./config/*`
+	#demo
+	sed -i "s/db.tars.com/${DBIP}/g" `grep db.tars.com -rl ./demo/config/*`
+	sed -i "s/3306/${DBPort}/g" `grep 3306 -rl ./demo/config/*`
+	sed -i "s/tars2015/${DBTarsPass}/g" `grep tars2015 -rl ./demo/config/*`
 
 	#npm config set user 0 
 	#npm install --registry=https://registry.npm.taobao.org
@@ -200,6 +204,8 @@ build_web_mgr(){
 
 	mysql -h${DBIP} -P${DBPort} -u${DBUser} -p${DBPassword} -e "create database db_tars_web"
 	mysql -h${DBIP} -P${DBPort} -u${DBUser} -p${DBPassword} db_tars_web < /usr/local/tarsweb/sql/db_tars_web.sql
+	mysql -h${DBIP} -P${DBPort} -u${DBUser} -p${DBPassword} -e "create database db_user_system"
+	mysql -h${DBIP} -P${DBPort} -u${DBUser} -p${DBPassword} db_user_system < /usr/local/tarsweb/demo/sql/db_user_system.sql
 }
 
 

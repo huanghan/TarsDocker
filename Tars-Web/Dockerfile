@@ -26,6 +26,8 @@ COPY TarsWeb /usr/local/tarsweb
 
 RUN  cd /usr/local/tarsweb/ && npm install --registry=https://registry.npm.taobao.org
 
+RUN  cd /usr/local/tarsweb/demo && npm install --registry=https://registry.npm.taobao.org
+
 #
 ENV TARSMASTER tars_master
 #  

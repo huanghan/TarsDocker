@@ -19,6 +19,7 @@ case ${1} in
 	start)
 		#cd /usr/local/app/tars && ./tars_install.sh
 		cd /usr/local/tarsweb/ && npm run prd
+		cd /usr/local/tarsweb/demo && npm run prd
 		tail -f /dev/null
 		;;
 	*)
